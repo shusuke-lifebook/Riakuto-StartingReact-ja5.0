@@ -26,4 +26,36 @@
 ◇  Installing dependencies with npm...
 ```
 
-- npm run dev
+- 開発サーバーの起動
+  - npm run dev
+  - npm run dev -- --port=3000
+
+```
+  VITE v7.1.7  ready in 525 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+- プロジェクトファイルの説明
+  |ディレクトリ名/ファイル名|内容|
+  |:---|:---|
+  |src/|アプリケーションのソースコードが置かれる|
+  |node_modules|アプリケーションに必要な npm パッケージが保存されている|
+  |public|公開用のアセットファイルを置く|
+  |package.json|インストールするパッケージの情報などが書かれた設定ファイル|
+  |package-lock.json|インストールしたパッケージの依存情報が保存されたファイル|
+  |tsconfig.json|TypeScript をコンパイルするための設定ファイル(※現状は下記 2 つのファイルを参照しているだけ)|
+  |tsconfig.app.json|アプリケーションコード用のコンパイラオプションを記述|
+  |tsconfig.node.json|ビルドツールの設定ファイルをコンパイルするためオプションを記述|
+  |eslint.config.js|静的コード解析ツール ESLint の設定ファイル|
+  |vite.config.ts|Vite の設定ファイル|
+  |.gitignore|Git リポジトリに含めないものリスト|
+
+## プロジェクトを管理するためのコマンドやスクリプト
+
+### pnpm
+
+- 環境を Node.js のバージョンに依存させたくないので、mise を使う。
+  - mise use -g pnpm
