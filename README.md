@@ -58,4 +58,25 @@
 ### pnpm
 
 - 環境を Node.js のバージョンに依存させたくないので、mise を使う。
+
   - mise use -g pnpm
+
+- Vite を使ったプロジェクトを pnpm で作り直す
+  - pnpm create vite hello-world --template=react-ts
+
+```
+
+◇  Use rolldown-vite (Experimental)?:
+│  No
+│
+◇  Install with pnpm and start now?
+│  No
+│
+◇  Scaffolding project in /home/shusuke/work_react/03_pnpm/hello-world...
+│
+└  Done. Now run:
+
+  cd hello-world
+  pnpm install
+  pnpm dev
+```
