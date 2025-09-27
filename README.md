@@ -1,4 +1,6 @@
-# Riakuto-StartingReact-ja5.0
+# Riakuto-StartingReact-ja5.0 の学習
+
+[りあクト！ TypeScript で始めるつらくない React 開発 第 5 版](https://github.com/klemiwary/Riakuto-StartingReact-ja5.0/tree/main)
 
 ## default-npm-packages
 
