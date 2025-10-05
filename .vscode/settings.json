@@ -9,9 +9,9 @@
 
   // エディタの設定
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 
-  "terminal.integrated.env.linux": {
-    "PATH": "${env:PATH}:${env.HOME}/.local/share/mise/shims"
-  }
+  // "terminal.integrated.env.linux": {
+  //   "PATH": "${env:PATH}:${env.HOME}/.local/share/mise/shims"
+  // }
 }
