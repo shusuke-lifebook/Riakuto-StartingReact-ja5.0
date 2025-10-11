@@ -9,22 +9,22 @@
 
   // エディタの設定
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 
-  "editor.quickSuggestions": {
-    "other": "on",
-    "comments": "off",
-    "strings": "on"
-  },
+  // "editor.quickSuggestions": {
+  //   "other": "on",
+  //   "comments": "off",
+  //   "strings": "on"
+  // },
 
-  "editor.suggestOnTriggerCharacters": true,
-  "javascript.suggest.enabled": true,
+  // "editor.suggestOnTriggerCharacters": true,
+  // "javascript.suggest.enabled": true,
 
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true
-  }
+  // "files.watcherExclude": {
+  //   "**/.git/objects/**": true,
+  //   "**/.git/subtree-cache/**": true,
+  //   "**/node_modules/*/**": true
+  // }
 
   // "terminal.integrated.env.linux": {
   //   "PATH": "${env:PATH}:${env.HOME}/.local/share/mise/shims"
