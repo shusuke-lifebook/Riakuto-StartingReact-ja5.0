@@ -87,3 +87,5 @@ pnpm create vite 01-ui
 pnpm add -D vite-tsconfig-paths
 pnpm add -D tailwindcss @tailwindcss/vite @types/node
 pnpm approve-builds
+pnpx shadcn init → pnpm dlx shadcn init
+pnpx shadcn add button → pnpm dlx shadcn add button
