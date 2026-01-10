@@ -205,3 +205,56 @@ const showNames = (a, b, ...rest) => {
 
 showNames("Moon", "Mercury", "Mars", "Jupiter", "Venus");
 ```
+
+### 📒 2.5 クラス
+
+#### 📒 2.5.1 クラスのようでクラスではない、JavaScript のクラス構文
+
+```JavaScript
+class Bird {
+  #className = "鳥類";
+
+  constructor(name) {
+    this.name = name;
+  }
+
+  static explain() {
+    console.log("こらは鳥クラスです");
+  }
+
+  cry(sound) {
+    console.log(`${this.name}が「${sound}」と鳴きました`);
+  }
+
+  introduce() {
+    console.log(`私は${this.#className}の${this.name}です。`);
+  }
+}
+
+class FlyableBird extends Bird {
+  constructor(name) {
+    super(name);
+  }
+
+  fly() {
+    console.log(`${this.name}が飛びました。`);
+  }
+}
+
+Bird.explain();
+
+const penguin = new Bird("ペンギン");
+penguin.introduce();
+
+const hawk = new FlyableBird("タカ");
+hawk.cry("ピィィー");
+hawk.fly();
+
+```
+
+#### 📒 2.5.2 プロトタイプベースのオブジェクト指向
+
+- プロトタイプベースでは、そもそもオブジェクトの抽象としてのクラスが存在しない。オブジェクトは直接、他のオブジェクトを継承する。
+- その時の継承元となったオブジェクトのことをプロトタイプと呼ぶ。
+
+### 📒 2.6 配列やオブジェクトの便利な構文
