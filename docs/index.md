@@ -43,3 +43,14 @@
     - cd hello-world
     - npm install
     - npm run dev (ポート: npm run dev --port=3000)
+
+### 📒 1-3 プロジェクトを管理するためのコマンドやスクリプト
+
+#### 📒 1-3-1 pnpm
+
+- mise use -g pnpm
+- Vite with pnpm
+  - pnpm create vite hello-world --template=react-ts
+  - cd hello-world
+  - pnpm install
+  - pnpm dev
