@@ -1,5 +1,7 @@
 # りあくと！TypeScript で始めるつらくない React 開発
 
+- [りあクト！ TypeScript で始めるつらくない React 開発 第 5 版](https://github.com/klemiwary/Riakuto-StartingReact-ja5.0/tree/main)
+
 ## 📒 第 1 章 こんにちは React
 
 ### 📒 1-1 基本環境の構築
@@ -21,8 +23,23 @@
     |mise plugins install <PLUGIN>|プラグインをインストール|
     |mise plugins update <PLUGIN>|インストール済みプラグインをアップデート|
     |mise plugins uninstall <PLUGIN>|インストール済みのプラグインを削除|
-    |mise ls [PLUGIN]|プラグインパッケージのインストール済みバージョン一覧を表示|
-    |mise ls-remote [PLUGIN]||
-    |||
-    |||
-    |||
+    |mise ls \[PLUGIN\]|プラグインパッケージのインストール済みバージョン一覧を表示|
+    |mise ls-remote \[PLUGIN\]|プラグインパッケージのインストール可能なバージョン一覧を表示|
+    |mise current \[PLUGIN\]|プラグインのアクティブなパッケージを表示|
+    |mise latest <PLUGIN>\[@VERSION\]|プラグインの利用可能な最新のバージョンを表示。|
+    |mise install <PLUGIN>\[@VERSION\]|任意のバージョンのパッケージをインストール。|
+    |mise uinstall <PLUGIN>\[@VERSION\]|任意のバージョンのパッケージをアンインストール|
+    |mise global <PLUGIN>\[@VERSION\]|そのプラグインのグローバルにつかうパッケージバージョンを指定|
+    |mise local <PLUGIN>\[@VERSION\]|そのプラグインのローカルにつかうパッケージバージョンを指定|
+    |mise prune \[PLUGIN\]|プラグインの使用していないバージョンを削除する|
+    |mise upgrade \[PLUGIN\]|プラグインのパッケージを最新版にアップグレードする。その際、旧バージョンのパッケージは削除される|
+
+#### 📒 1-1-3. 超絶推奨エディタ Visual Studio Code
+
+### 📒 1-2. React プロジェクトを作成する
+
+- Vite
+  - npm create vite@latest hello-world -- --template=react-ts
+    - cd hello-world
+    - npm install
+    - npm run dev (ポート: npm run dev --port=3000)
