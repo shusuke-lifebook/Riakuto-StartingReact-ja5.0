@@ -403,3 +403,46 @@ console.log(patty);
 ```
 
 ### 📒 2.7 式と演算子で短く書く
+
+#### 📒 2.7.1 ショートサーキット評価
+
+- ショートサーキット評価(Short-Circuite Evaluation)
+- &&や||、!といった論理演算を使い、右辺の評価を左辺に評価に委ねる記法のこと。
+
+```JavaScript
+const hello = undefined || null || 0 || NaN || "" || "Hello";
+const chao = " " && 100 && [] && {} && "Chao!";
+
+true && console.log("1.", hello);
+false && console.log("2.", hello);
+true || console.log("3.", chao);
+false || console.log("4.", chao);
+
+```
+
+#### 📒 2.7.2 Nullish Coalescing と Optional Chaining
+
+```JavaScript
+const users = [
+  {
+    name: "Patty Rabbit",
+    address: {
+      town: "Maple Town",
+    },
+  },
+  {
+    name: "Rolley Cocker",
+    address: {},
+  },
+  null,
+];
+
+for (u of users) {
+  const user = u ?? { name: "(Somebody)" };
+  const town = user?.address?.town ?? "(Somewhere)";
+  console.log(`${user.name} lives in ${town}`);
+}
+
+```
+
+- 「??を並べている部分が**Nullish Coalescing**」、?でつないでいる部分が**Optional Chaining**
