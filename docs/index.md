@@ -258,3 +258,148 @@ hawk.fly();
 - その時の継承元となったオブジェクトのことをプロトタイプと呼ぶ。
 
 ### 📒 2.6 配列やオブジェクトの便利な構文
+
+#### 📒 2.6.1 分割代入とスプレット構文
+
+```JavaScript
+const foo = "dummy";
+const bar = "key";
+const baz = 1024;
+
+const obj1 = {
+  foo: 4,
+  foo: 8,
+  "<fuu>": 16,
+  [bar]: 128,
+  [`_${bar}2`]: 256,
+  baz: baz / 2,
+};
+
+console.log(obj1);
+
+const obj2 = { baz };
+console.log(obj2);
+
+```
+
+```JavaScript
+const [a, b] = ["foo", "bar"];
+console.log(a, b);
+
+const [, n] = [1, 4];
+console.log(n);
+
+const [, , i, , j, , , k] = [1, 2, 3, 4, 5, 6, 7];
+console.log(i, j, k);
+
+const profile = { name: "Kanae", age: 24, gender: "f" };
+const { name, age } = profile;
+console.log(name, age);
+
+```
+
+```JavaScript
+const response = {
+  data: [
+    {
+      id: 1,
+      name: "Patty Rabbit",
+      email: "patty@maple.town",
+    },
+    {
+      id: 2,
+      name: "Rolley Cocker",
+      email: "rolley@palm.town",
+    },
+    {
+      id: 3,
+      name: "Bobby Kumanov",
+      email: "bobby@mapletown",
+    },
+  ],
+};
+
+const { data: users = [] } = response;
+console.log(users);
+
+```
+
+```JavaScript
+const arr1 = ["a", "b", "c"];
+const arr2 = [...arr1, "d", "e"];
+const arr3 = ["Y", "Z", ...arr1, ...arr2];
+
+console.log(arr2);
+console.log(arr3);
+
+const obj1 = { a: 1, b: 2, c: 3, d: 4 };
+const obj2 = { ...obj1, d: 99, e: 5 };
+
+console.log(obj2);
+
+```
+
+```JavaScript
+const user = {
+  id: 1,
+  name: "Patty Rabbit",
+  email: "patty@mapple.town",
+  age: 8,
+};
+
+const { id, ...userWithoutId } = user;
+
+console.log(id, userWithoutId);
+
+```
+
+#### 📒 2.6.2 オブジェクトのマージとコピー
+
+- assign
+
+```JavaScript
+const original = { a: 1, b: 2, c: 3 };
+
+const copy = Object.assign({}, original);
+console.log(copy);
+console.log(copy === original);
+
+const assigned = Object.assign(original, { c: 10, d: 50 }, { d: 100 });
+console.log(assigned);
+console.log(original);
+```
+
+- スプレッド
+
+```JavaScript
+const original = { a: 1, b: 2, c: 3 };
+
+const copy = { ...original };
+console.log(copy);
+console.log(copy === original);
+
+const assigned = { ...original, ...{ c: 10, d: 50 }, d: 100 };
+console.log(assigned);
+console.log(original);
+
+```
+
+- structuredClone: 多段階にネストされたオブジェクトや配列もコピー可能
+
+```JavaScript
+const patty = {
+  name: "Patty Rabbit",
+  email: "patty@mapple.town",
+  address: { town: "Mapple Town" },
+};
+
+const rolley = structuredClone(patty);
+rolley.name = "Rolley Cocker";
+rolley.email = "rolley@palm.town";
+rolley.address.town = "Palm Town";
+
+console.log(patty);
+
+```
+
+### 📒 2.7 式と演算子で短く書く
