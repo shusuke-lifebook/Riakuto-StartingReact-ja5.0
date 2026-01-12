@@ -446,3 +446,55 @@ for (u of users) {
 ```
 
 - 「??を並べている部分が**Nullish Coalescing**」、?でつないでいる部分が**Optional Chaining**
+
+### 📒 2.8 モジュールを読み込む
+
+#### 📒 2.8.1 JavaScript モジュール三国志
+
+- **CommonJS**
+
+```JavaScript
+const moon = {
+  modifier: "prism",
+  transform() {
+    console.log(`Moon ${this.modifier} power, make up!`);
+  },
+};
+
+module.exports = moon;
+
+exports.transform = function () {
+  console.log("Venus power, make up!");
+};
+
+const finish = function () {
+  console.log("Crescent beam!");
+};
+
+exports.finish = finish;
+
+```
+
+- **ES Modules(ESM)**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ES Module Test</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+    <script type="module">
+      import uniq from "https://esm.sh/lodash/uniq.js";
+
+      const arr = [12, 2, 2, 2, 9, 5, 12, 2, 15, 8, 9, 8];
+      const elems = uniq(arr)
+        .map((n) => `<li>${n}</li>`)
+        .join("");
+      document.getElementById("list").innerHTML = elems;
+    </script>
+  </body>
+</html>
+```

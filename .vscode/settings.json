@@ -44,5 +44,11 @@
       "extensions": ["djhtml", "jinja"],
       "format": "svg"
     }
-  ]
+  ],
+  // Emmetの設定
+  "emmet.includeLanguages": {
+    "html": "html",
+    "django-html": "html",
+    "jinja-html": "html"
+  }
 }
