@@ -498,3 +498,13 @@ exports.finish = finish;
   </body>
 </html>
 ```
+
+#### 📒 2.8.2 ES Modules でインポート/エクスポート
+
+- package.json
+
+```json
+"type": "module"
+```
+
+### 📒 2.9 それでも知っておくべき this の挙動
