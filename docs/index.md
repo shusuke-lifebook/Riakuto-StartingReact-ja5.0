@@ -551,3 +551,44 @@ exports.finish = finish;
 #### 📒 3.3.2 高階関数
 
 - 「**高階関数**(Higher Order Function)」とは引数に関数をとったり、戻り値に関数を返したりする関数のこと。
+
+#### 📒 3.3.3 カリー化関数の部分適用
+
+```JavaScript
+// カリー化前
+{
+  const multiply = (n, m) => n * m;
+  console.log(multiply(2, 4));
+}
+// カリー化
+{
+  function withMultiple(n) {
+    return (m) => n * m;
+  }
+  console.log(withMultiple(2)(4)); // 8
+}
+// アロー関数式でカリー化
+{
+  const withMultiple = (n) => (m) => n * m;
+  console.log(withMultiple(2)(4)); // 8
+}
+```
+
+```JavaScript
+const withMultiple = (n) => (m) => n * m;
+console.log(withMultiple(3)(5));
+const triple = withMultiple(3);
+console.log(triple(5));
+```
+
+#### 📒 3-3-4 閉じ込められたクロージャの秘密
+
+```JavaScript
+function counter() {
+  let count = 0;
+  function increment() {
+    return (count += 1);
+  }
+  return increment;
+}
+```
