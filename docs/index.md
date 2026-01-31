@@ -592,3 +592,36 @@ function counter() {
   return increment;
 }
 ```
+
+### 📒 3.4 非同期処理と例外処理
+
+#### 📒 3.4.1 Promiseで非同期処理を扱う
+
+- PromiseはES2015から導入されたJavaScriptの標準組み込みオブジェクトで、非同期処理の最終的な処理結果の値を文字通り「約束」するもの。
+
+  ```JavaScript
+  const isSucceeded = Math.random() < 0.5;
+
+  const promise = new Promise((resolve, reject) => {
+    if (isSucceeded) {
+      resolve("Success");
+    } else {
+      reject(new Error("Failure"));
+    }
+  });
+
+  promise
+    .then((value) => {
+      console.log("1", value);
+      return "Success again";
+    })
+    .then((value) => {
+      console.log("2", value);
+    })
+    .catch((error) => {
+      console.error("3", error);
+    })
+    .finally(() => {
+      console.log("4", "Completed");
+    });
+  ```
