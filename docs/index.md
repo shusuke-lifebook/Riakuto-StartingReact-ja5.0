@@ -625,3 +625,74 @@ function counter() {
       console.log("4", "Completed");
     });
   ```
+
+#### 📒 3.4.2 asyncとawait
+
+- asyncは「asynchronous(非同期的)を省略したもの」
+- awaitは「待ち望む、待ち構える」
+
+  ```JavaScript
+  async function getUser(userID) {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userID}`,
+    );
+    if (!response.ok) {
+      throw new Error(`${response.status} Error`);
+    }
+    return response.json();
+  }
+
+  console.log("--- Start ---");
+
+  async function main() {
+    try {
+      const user = await getUser(2);
+      console.log(user);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("--- Complated ---");
+    }
+  }
+
+  main();
+  ```
+
+#### 📒 3.4.3 複数のPromiseをまとめて扱う
+
+```JavaScript
+const rejectList = [];
+
+function promiseN(n) {
+  return new Promise((resolove, reject) => {
+    console.log(`--- promiseN(${n}) start ---`);
+    setTimeout(() => {
+      if (rejectList.includes(n)) {
+        rejectList(new Error(`*** promise(${n}) rejected ***`));
+      } else {
+        resolove(n);
+        console.log(`=== promise(${n}) resolved ===`);
+      }
+    }, 1000 * n);
+  });
+}
+
+const promises = [promiseN(3), promiseN(2), promiseN(1)];
+let results = [];
+
+try {
+  results = await Promise.all(promises);
+} catch (error) {
+  console.log("Error: " + error.message);
+}
+
+console.log(results);
+
+```
+
+| メソッド      | 終了条件                                | 正常時の戻り値                  | 異常時                                 | ES Ver. |
+| :------------ | :-------------------------------------- | :------------------------------ | :------------------------------------- | :------ |
+| .all()        | すべてがresolveまたは、いずれかがreject | すべてのresolveが返した値の配列 | 最初のrejectによる例外が発生           | ES2015  |
+| .allSettled() | すべてが完了                            | 成果オブジェクトの配列          | 成果オブジェクトの配列                 | ES2020  |
+| .any()        | いずれかひとつがresolve                 | 最初のresolveが返した値         | すべてがrejectされた場合のみ例外が発生 | ES2021  |
+| .race()       | いずれかひとつが完了                    | 最初のresolveが返した値         | 最初のrejectによる例外が発生           | ES2015  |
